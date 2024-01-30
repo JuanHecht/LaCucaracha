@@ -39,24 +39,13 @@ class Game {
     this.gameScreen.style.width = `${this.width}px`;
     this.soundtrack = document.getElementById("soundtrack");
     this.soundtrack.play();
-    // Create chanclas
-    // In case it doesnt work uncomment
-    /*     setInterval(() => {
-      this.chanclas.push(new Chancla(this.gameScreen));
-      this.isPushingChancla = false;
-    }, 3000);
-    // Create spiders
-    setInterval(() => {
-      this.spiders.push(new Spider(this.gameScreen));
-      this.isPushingSpider = false;
-    }, 6500); */
+
     //Hides the start screen.
     this.startScreen.style.display = "none";
     //Shows the game screen.
     this.gameScreen.style.display = "block";
-    /*  this.soundtrack.getElementById("soundtrack");
-    this.soundtrack.play();
- */
+    
+    this.createObstacle();
     //Starts the game loop.
     this.gameLoop();
   }
@@ -69,6 +58,55 @@ class Game {
     this.updateChancla();
     window.requestAnimationFrame(() => this.gameLoop());
   }
+
+  // New method to create obstacles
+  createObstacle() {
+    if (!this.isPushingObstacle) {
+      this.isPushingObstacle = true;
+
+      setTimeout(() => {
+        this.obstacles.push(new Obstacle(this.gameScreen));
+        this.isPushingObstacle = false;
+
+        // Create chancla after creating obstacle
+        this.createChancla();
+      }, 1500);
+    }
+  }
+
+  // New method to create chanclas
+  createChancla() {
+    if (!this.isPushingChancla) {
+      this.isPushingChancla = true;
+
+      setTimeout(() => {
+        this.chanclas.push(new Chancla(this.gameScreen));
+        this.isPushingChancla = false;
+
+        // Create spider after creating chancla
+        this.createSpider();
+      }, 3000);
+    }
+  }
+
+  // New method to create spiders
+  createSpider() {
+    if (!this.isPushingSpider) {
+      this.isPushingSpider = true;
+
+      setTimeout(() => {
+        this.spiders.push(new Spider(this.gameScreen));
+        this.isPushingSpider = false;
+
+        // After creating spider, restart the sequence by creating obstacles again
+        this.createObstacle();
+      }, 6000);
+    }
+  }
+
+
+
+
   update() {
     /* score, lives scoreboard */
     let score = document.getElementById("score");
@@ -99,23 +137,7 @@ class Game {
     ) {
       this.endGame();
     }
-    //if there are no obstacles
-    else if (this.obstacles.length === 0 && !this.isPushingObstacle) {
-      this.isPushingObstacle = true;
-      setTimeout(() => {
-        this.obstacles.push(new Obstacle(this.gameScreen));
-        this.isPushingObstacle = false;
-      }, 1500);
-      setInterval(() => {
-        this.chanclas.push(new Chancla(this.gameScreen));
-        this.isPushingChancla = false;
-      }, 5000);
-      // Create spiders
-      setInterval(() => {
-        this.spiders.push(new Spider(this.gameScreen));
-        this.isPushingSpider = false;
-      }, 7000);
-    }
+
     score.innerHTML = this.score;
     lives.innerHTML = this.lives;
   }
