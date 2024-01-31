@@ -1,28 +1,9 @@
 window.onload = function () {
-  const startButton = document.getElementById("start-button");
-  const restartButton = document.getElementById("restart-button");
 
   let game;
   let gameStarted = false;
 
-  /* startButton.addEventListener("click", function () {
-    startGame();
-  }); */
-  /* document.addEventListener("keydown", function () {
-    startGame();
-  }); */
-
-  document.addEventListener("keydown", function () {
-    if (!gameStarted) {
-      startGame();
-      gameStarted = true;
-      document.removeEventListener("keydown", startGameOnKeyPress);
-    }
-  });
-  restartButton.addEventListener("click", function () {
-    //js in the current tab is going to refresh the page
-    location.reload();
-  });
+  document.addEventListener("keydown", startGameOnKeyPress);
 
   function startGameOnKeyPress(event) {
     if (!gameStarted) {
@@ -33,14 +14,13 @@ window.onload = function () {
   }
 
   function startGame() {
-    //   console.log("start game");
     game = new Game();
     game.start();
   }
 
   function handleKeydown(event) {
     const key = event.key;
-    const possibleKeys = ["ArrowLeft", "ArrowUp", "ArrowRight", "ArrowDown"];
+    const possibleKeys = ["ArrowLeft", "ArrowUp", "ArrowRight"];
     if (possibleKeys.includes(key)) {
       event.preventDefault();
 
@@ -60,11 +40,14 @@ window.onload = function () {
         }
       }
     }
+    if (game && game.gameIsOver) {
+      location.reload();
+    }
   }
 
   function handleKeyup(event) {
     const key = event.key;
-    const possibleKeys = ["ArrowLeft", "ArrowUp", "ArrowRight", "ArrowDown"];
+    const possibleKeys = ["ArrowLeft", "ArrowUp", "ArrowRight"];
     if (possibleKeys.includes(key)) {
       event.preventDefault();
 

@@ -1,15 +1,6 @@
 class Spider {
-  constructor(gameScreen) {
+  constructor(gameScreen, width, height) {
     this.gameScreen = gameScreen;
-    // reandom position (left and top) for the blackhole
-    /* this.left = Math.floor(
-      Math.random() * this.gameScreen.offsetWidth * 0.6 +
-        this.gameScreen.offsetWidth * 0.2
-    );
-    this.top = Math.floor(
-      Math.random() * this.gameScreen.offsetHeight * 0.6 +
-        this.gameScreen.offsetHeight * 0.2
-    ); */
 
     this.left = Math.floor(
       Math.random() * this.gameScreen.offsetWidth * 0.7 +
@@ -20,9 +11,9 @@ class Spider {
         this.gameScreen.offsetHeight * 0.05
     );
 
-    // size of the blackhole
-    this.width = 130;
-    this.height = 130;
+    // size of the spider
+    this.width = width;
+    this.height = height;
 
     // create the HTML elements and default styling
     this.element = document.createElement("img");

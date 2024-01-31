@@ -5,36 +5,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="./styles/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DynaPuff&display=swap"
+      rel="stylesheet"
+    />
     <title>La cucaracha</title>
   </head>
   <body>
     <main>
       <!-- #game-intro is initially shown on the game start screen -->
       <div id="game-intro">
-        <img src="./images/logo.png" alt="" class="logo-img" />
-        <br />
-        <button id="start-button">Start Game</button>
-        <p>Use the up, left and right arrow to fly the cockroach!</p>
-        <img src="./images/arrows.png" alt="" class="arrows-img" />
+        <!-- IMAGES -->
+        <div class="intro-container">
+          <div class="elements-img">
+            <img src="./images/element1.png" alt="" class="element1" />
+            <img src="./images/logo.png" alt="" class="logo-img" />
+            <!-- <img src="./images/dead.gif" alt="" class="dead" /> -->
+            <img src="./images/element2.png" alt="" class="element2" />
+            <!-- INFOS -->
+            <div class="infos">
+              <h1>LA CUCARACHA</h1>
+              <p>
+                Use the <strong>UP</strong>, <strong>LEFT</strong> and
+                <strong>RIGHT</strong> arrow to fly the cockroach!<br />
+                Avoid the enemies and score the maximum you can, if you fall,
+                you die!
+              </p>
+              <h6>PRESS UP TO START</h6>
+              <img src="./images/arrows.png" alt="" class="arrows-img" />
+            </div>
+          </div>
+        </div>
       </div>
 
       <div id="game-container">
-        <div>
+        <div id="stats">
           <h2>Stats</h2>
           <p>Score: <span id="score">0</span></p>
           <p>Lives: <span id="lives">3</span></p>
         </div>
+        
+      
+        
         <!-- #game-screen is initially hidden using CSS style display: none -->
         <div id="game-screen"></div>
+         
         <audio id="soundtrack" src="./sound/LaCucaracha.mp3"></audio>
       </div>
 
       <!-- #game-end is initially hidden using CSS style display: none -->
       <div id="game-end">
-        <img src="./images/logo.png" alt="" class="logo-img" />
-        <h1>Game Over</h1>
-        <br />
+        
+        
+       
         <button id="restart-button">Restart</button>
+
+        <div class="intro-container">
+          <div class="elements-img">
+            <img src="./images/element1.png" alt="" class="element1" />
+            <img src="./images/dead.gif" alt="" class="dead" />
+            <img src="./images/element2.png" alt="" class="element2" />
+            <!-- INFOS -->
+            <div class="infos infos-end">
+              <!-- <button id="start-button">Start Game</button> -->
+              <h1>GAME OVER</h1><br><br>
+              <h6>Highest score: <span id='highest-score'>0</span></h6>
+             
+              <h6>PRESS UP TO RESTART</h6>
+              <img src="./images/arrows.png" alt="" class="arrows-img" />
+            </div>
+          </div>
+          
+
       </div>
     </main>
 
