@@ -91,15 +91,13 @@ p {
 
 /* WHEN THE GAME STARTS */
 #game-container {
-  display: flex;
+  display: none;
   width: 100vw;
   padding: 0px 0px;
   justify-content: center;
-  background-image: url(../images/wood.jpg);
+  background-image: url(../images/mexican4.jpg);
   background-size: cover;
 }
-
-
 
 #game-screen {
   display: none;
@@ -115,8 +113,21 @@ p {
 #stats{
   display: none;
   color: beige;
+  position: relative;
 }
 
+#stats h2,
+#stats p{
+  background-color: #aa2020;
+  margin-top:  0px;
+  margin-bottom: 0px;
+}
+
+.gif{
+  height: 270px;
+  width: 200px;
+  align-self: center;
+}
 @keyframes slide {
   0% {
     background-position: 0 -1000px;

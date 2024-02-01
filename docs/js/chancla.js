@@ -14,9 +14,9 @@ class Chancla {
     this.top = 0;
 
     if (this.left === 0) {
-      this.imgSrc = "./images/chancla.png";
+      this.imgSrc = "docs/images/chancla.png";
     } else {
-      this.imgSrc = "./images/chancla2.png";
+      this.imgSrc = "docs/images/chancla2.png";
     }
 
     // create the HTML element and default styling

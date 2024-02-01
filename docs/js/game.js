@@ -1,3 +1,4 @@
+/* 2 functions to show are createObstacle and startgameonkeypress (script) */
 class Game {
   constructor() {
     //Get all Game Screens
@@ -15,7 +16,7 @@ class Game {
       500,
       50,
       70,
-      "./images/car.png"
+      "docs/images/car.png"
     );
 
     //Style for the game board
@@ -51,11 +52,8 @@ class Game {
     //Shows the game screen.
     this.stats.style.display = "block";
     this.gameScreen.style.display = "block";
+    this.gameContainer.style.display = "flex";
 
-/*     const highestScoreElement = document.getElementById("highest-score");
-    const highestScore = localStorage.getItem("highestscore") || 0;
-    console.log(highestScore);
-    highestScoreElement.textContent = highestScore; */
 
     this.createObstacle();
     //Starts the game loop.
@@ -74,7 +72,6 @@ class Game {
 
 
   // WORKING METHOD TO CREATE ENEMIES IN ORDER
-  // New method to create obstacles
   createObstacle() {
     if (!this.isPushingObstacle) {
       this.isPushingObstacle = true;
@@ -108,7 +105,7 @@ class Game {
 
         // Create spider after creating chancla
         this.createSpider();
-      }, 3000);
+      }, 2500);
     }
   }
 
@@ -137,7 +134,7 @@ class Game {
 
         // After creating spider, restart the sequence by creating obstacles again
         this.createObstacle();
-      }, 5000);
+      }, 3500);
     }
   }
 
@@ -169,6 +166,7 @@ class Game {
     if (this.lives === 0) {
       this.endGame();
     } 
+
     // If the player hits the bottom the game ends
     else if (
       this.player.top + this.player.height >

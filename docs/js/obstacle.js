@@ -10,9 +10,9 @@ class Obstacle {
     this.positions = [0, this.gameScreen.offsetWidth - this.width];
     this.left = this.positions[Math.round(Math.random())];
     if (this.left === 0) {
-      this.imgSrc = "./images/redCar2.png";
+      this.imgSrc = "docs/images/redCar2.png";
     } else {
-      this.imgSrc = "./images/redCar.png";
+      this.imgSrc = "docs/images/redCar.png";
     }
 
     //create HTML element and create default styling
