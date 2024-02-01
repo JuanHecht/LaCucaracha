@@ -184,3 +184,144 @@ body button {
     transform: rotate(359deg);
   }
 }
+
+
+/* mobile width */
+@media (max-width: 767px){
+
+  /* INTRO */
+  .logo-img {
+    width: 150px;
+    align-self: flex-start;
+    margin-top: 150px;
+    animation: bounce 2s ease infinite;
+  }
+  .elements-img {
+    display: flex;
+    justify-content: space-around;
+    /* margin-top: 300px; */
+    flex-wrap: wrap;
+  }
+  
+  .element1 {
+    /* padding-top: 80px; */
+    margin-top: 350px;
+    height: 130px;
+    width: 25%;
+  }
+  
+  .element2 {
+    /* padding-top: 80px; */
+    margin-top: 350px;
+    height: 130px;
+    width: 25%;
+  }
+  
+  h1 {
+    font-family: "DynaPuff", system-ui;
+    font-size: 30px;
+    letter-spacing: 8px;
+    margin: 0;
+  }
+  
+  h6 {
+    font-family: "DynaPuff", system-ui;
+    font-size: 13px;
+    letter-spacing: 5px;
+    margin-bottom: 45px;
+  }
+  
+  p {
+    display: none;
+  }
+  
+  .arrows-img {
+    width: 80px;
+    transform: translateY(-50px);
+  }
+  
+  .infos {
+    transform: translateY(-180px);
+    margin-bottom: 150px;
+  }
+
+
+
+  /* Game started */
+  #game-container {
+    display: none;
+    width: 100vw;
+    padding: 0px 0px;
+    justify-content: center;
+    background-image: url(../images/mexican4.jpg);
+    background-size: cover;
+  }
+  
+  #game-screen {
+    display: none;
+    width: 100px;
+    align-content: center;
+    /* padding: 20px 0px; */
+    overflow: hidden;
+    position: relative;
+    background-image: url(../images/background.png);
+    background-size: none;
+    animation: slide 4.4s linear infinite;
+  }
+  
+  #stats{
+    display: none;
+    color: beige;
+    position: relative;
+  }
+  
+  #stats h2,
+  #stats p{
+    /* background-color: #aa2020;
+    margin-top:  0px;
+    margin-bottom: 0px; */
+    display: none;
+  }
+  
+  .gif{
+    display: none;
+  }
+
+  #chancla{
+    height: 10px;
+    width: 10px;
+  }
+  #spider{
+    height: 10px;
+    width: 10px;
+  }
+  #obstacle{
+    height: 10px;
+    width: 10px;
+  }
+  #player{
+    height: 10px;
+    width: 10px;
+  }
+
+  /* GAME ENDS */
+  
+  .dead {
+    width: 160px;
+    align-self: flex-start;
+    padding-top: 60px;
+  }
+  
+  .infos-end {
+    transform: translateY(-280px);
+  }
+  
+}
+
+
+/* When the width is less than 432 we contain the background */
+@media (max-width: 432px){
+  #game-screen {
+    background-size: contain;
+  }
+}

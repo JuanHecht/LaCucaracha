@@ -14,14 +14,17 @@ class Game {
       this.gameScreen,
       200,
       500,
-      50,
-      70,
       "docs/images/car.png"
     );
 
     //Style for the game board
     this.height = window.innerHeight;
-    this.width = 550;
+    if (window.innerWidth < 550) {
+      // If so, set this.width to window.innerWidth
+      this.width = window.innerWidth;
+    } else {
+      this.width = 550
+    }
 
     //Obstacles
     this.obstacles = [];
@@ -31,7 +34,7 @@ class Game {
     //Score
     this.score = 0;
     //Lives
-    this.lives = 60;
+    this.lives = 3;
     //Variable to check if im in the process of creating obstacles
     this.isPushingObstacle = false;
     this.isPushingChancla = false;

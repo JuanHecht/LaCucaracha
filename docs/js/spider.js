@@ -2,6 +2,11 @@ class Spider {
   constructor(gameScreen, width, height) {
     this.gameScreen = gameScreen;
 
+    // Declare width and height adjusting the sizes
+    this.width = this.adjustWidth(width);
+    this.height = this.adjustHeight(height);
+
+    // Choosing the position of the spiders randomly
     this.left = Math.floor(
       Math.random() * this.gameScreen.offsetWidth * 0.7 +
         this.gameScreen.offsetWidth * 0.15
@@ -12,8 +17,8 @@ class Spider {
     );
 
     // size of the spider
-    this.width = width;
-    this.height = height;
+    /* this.width = width; */
+    /* this.height = height; */ 
 
     // create the HTML elements and default styling
     this.element = document.createElement("img");
@@ -38,5 +43,27 @@ class Spider {
   updatePosition() {
     this.element.style.left = `${this.left}px`;
     this.element.style.top = `${this.top}px`;
+  }
+
+  
+  adjustHeight(height) {
+    const screenWidth = 550;
+    if (window.innerWidth < screenWidth) {
+      this.height = height * 0.7;
+      return this.height;
+    }  else {
+      this.height = height;
+      return this.height;
+    }
+  }
+  adjustWidth(width) {
+    const screenWidth = 550;
+    if (window.innerWidth < screenWidth) {
+      this.width = width * 0.7;
+      return this.width;
+    } else {
+      this.width = width;
+      return this.width;
+    }
   }
 }

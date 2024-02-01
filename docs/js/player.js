@@ -1,5 +1,5 @@
 class Player {
-  constructor(gameScreen, left, top, width, height, imgSrc) {
+  constructor(gameScreen, left, top, imgSrc) {
     // gameScreen HTML element
     this.gameScreen = gameScreen;
 
@@ -7,9 +7,18 @@ class Player {
     this.left = left;
     this.top = top;
 
-    // player dimension values
-    this.width = width;
-    this.height = height;
+    if (window.innerWidth < 550) {
+      this.width = 40; // Adjust the width for smaller screens
+    } else {
+      this.width = 50;
+    }
+
+    if (window.innerWidth < 550) {
+      this.height = 60; // Adjust the width for smaller screens
+    } else {
+      this.height = 70;
+    }
+
 
     this.element = document.createElement("img");
     this.element.src = imgSrc;

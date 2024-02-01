@@ -1,13 +1,18 @@
 class Chancla {
   constructor(gameScreen) {
     this.gameScreen = gameScreen;
-    // pre determined location at the top right corner of the screen
-    /* this.left = 300;
-    this.top = 0; */
 
-    // size
-    this.width = 120;
-    this.height = 120;
+    if (window.innerWidth < 550) {
+      this.width = 90; // Adjust the width for smaller screens
+    } else {
+      this.width = 120;
+    }
+
+    if (window.innerWidth < 550) {
+      this.height = 90; // Adjust the width for smaller screens
+    } else {
+      this.height = 120;
+    }
 
     this.positions = [0, this.gameScreen.offsetWidth - this.width];
     this.left = this.positions[Math.round(Math.random())];
