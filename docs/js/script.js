@@ -1,15 +1,17 @@
-window.onload = function () {
 
+window.onload = function () {
   let game;
   let gameStarted = false;
 
   document.addEventListener("keydown", startGameOnKeyPress);
+  document.addEventListener("touchstart", startGameOnKeyPress);
 
   function startGameOnKeyPress(event) {
     if (!gameStarted) {
       startGame();
       gameStarted = true;
       document.removeEventListener("keydown", startGameOnKeyPress);
+      document.removeEventListener("touchstart", startGameOnKeyPress);
     }
   }
 
@@ -67,6 +69,38 @@ window.onload = function () {
     }
   }
 
+  function handleTouchStart(event) {
+    if (gameStarted) {
+      const touchX = event.touches[0].clientX;
+      const screenWidth = window.innerWidth;
+
+      if (touchX < screenWidth / 3) {
+        // Left third of the screen
+        game.player.directionX = -10;
+        game.player.directionY = -5;
+      } else if (touchX < (2 * screenWidth) / 3) {
+        // Middle third of the screen
+        game.player.directionY = -13;
+      } else {
+        // Right third of the screen
+        game.player.directionX = 10;
+        game.player.directionY = -5;
+      }
+    }
+    if (game && game.gameIsOver) {
+      location.reload();
+    }
+  }
+
+  function handleTouchEnd() {
+    if (game) {
+      game.player.directionX = 0;
+      game.player.directionY = game.player.gravity;
+    }
+  }
+
   window.addEventListener("keydown", handleKeydown);
   window.addEventListener("keyup", handleKeyup);
+  window.addEventListener("touchstart", handleTouchStart);
+  window.addEventListener("touchend", handleTouchEnd);
 };
