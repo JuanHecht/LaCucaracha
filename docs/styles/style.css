@@ -187,7 +187,7 @@ body button {
 
 
 /* mobile width */
-@media (max-width: 767px){
+@media (max-width: 900px){
 
   /* INTRO */
   .logo-img {

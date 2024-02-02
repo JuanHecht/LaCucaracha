@@ -29,15 +29,15 @@ window.onload = function () {
       if (game) {
         switch (key) {
           case "ArrowLeft":
-            game.player.directionX = -10;
-            game.player.directionY = -5;
+            game.player.directionX = -7;
+            game.player.directionY = -4;
             break;
           case "ArrowUp":
-            game.player.directionY = -13;
+            game.player.directionY = -10;
             break;
           case "ArrowRight":
-            game.player.directionX = 10;
-            game.player.directionY = -5;
+            game.player.directionX = 7;
+            game.player.directionY = -4;
             break;
         }
       }
@@ -56,13 +56,19 @@ window.onload = function () {
       if (game) {
         switch (key) {
           case "ArrowLeft":
-            game.player.directionX = 0;
+            /* game.player.directionX = 0; */
+            setTimeout(() => {
+              game.player.directionX = 0;
+            }, 200);
             break;
           case "ArrowUp":
-            game.player.directionY = game.player.gravity;
+            /* game.player.directionY = game.player.gravity; */
             break;
           case "ArrowRight":
-            game.player.directionX = 0;
+            /* game.player.directionX = 0; */
+            setTimeout(() => {
+              game.player.directionX = 0;
+            }, 200);
             break;
         }
       }
@@ -76,15 +82,15 @@ window.onload = function () {
 
       if (touchX < screenWidth / 3) {
         // Left third of the screen
-        game.player.directionX = -10;
-        game.player.directionY = -5;
+        game.player.directionX = -6.5;
+        game.player.directionY = -4;
       } else if (touchX < (2 * screenWidth) / 3) {
         // Middle third of the screen
-        game.player.directionY = -13;
+        game.player.directionY = -10;
       } else {
         // Right third of the screen
-        game.player.directionX = 10;
-        game.player.directionY = -5;
+        game.player.directionX = 6.5;
+        game.player.directionY = -4;
       }
     }
     if (game && game.gameIsOver) {
@@ -94,10 +100,13 @@ window.onload = function () {
 
   function handleTouchEnd() {
     if (game) {
-      game.player.directionX = 0;
-      game.player.directionY = game.player.gravity;
+      setTimeout(() => {
+        game.player.directionX = 0;
+      }, 200);
+      /* game.player.directionY = game.player.gravity; */
     }
   }
+
 
   window.addEventListener("keydown", handleKeydown);
   window.addEventListener("keyup", handleKeyup);
