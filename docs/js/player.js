@@ -31,7 +31,7 @@ class Player {
     this.directionX = 0;
     this.directionY = 0;
 
-    this.gravity = 0.4;
+    /* this.gravity = 0.4; */
 
     this.gameScreen.appendChild(this.element);
   }
@@ -64,11 +64,6 @@ class Player {
 
     this.updatePosition();
   }
-
-  /* jump() {
-    this.top -= 55;
-    this.updatePosition();
-  } */
 
   updatePosition() {
     this.element.style.left = `${this.left}px`;

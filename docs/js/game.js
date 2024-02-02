@@ -34,7 +34,7 @@ class Game {
     //Score
     this.score = 0;
     //Lives
-    this.lives = 3;
+    this.lives = 73;
     //Variable to check if im in the process of creating obstacles
     this.isPushingObstacle = false;
     this.isPushingChancla = false;
@@ -55,7 +55,15 @@ class Game {
     //Shows the game screen.
     this.stats.style.display = "block";
     this.gameScreen.style.display = "block";
-    this.gameContainer.style.display = "flex";
+
+    /* Hacer que si el innerwidth es menos a 150 */
+    if (window.innerWidth < 486) {
+      // If so, set this.width to window.innerWidth
+      this.gameContainer.style.display = "block";
+    } else {
+      this.gameContainer.style.display = "flex";
+    }
+    /* this.gameContainer.style.display = "flex"; */
 
 
     this.createObstacle();
