@@ -34,7 +34,7 @@ class Game {
     //Score
     this.score = 0;
     //Lives
-    this.lives = 73;
+    this.lives = 3;
     //Variable to check if im in the process of creating obstacles
     this.isPushingObstacle = false;
     this.isPushingChancla = false;
